@@ -1,8 +1,4 @@
 
-setTimeout(function bar(){
-   console.log("What?");
-   setTimeout(bar, 500)
-}, 500)
 
 
 let game = [0,1,2,4,0,3,0]
@@ -11,18 +7,17 @@ let t = 500
 let form = document.querySelector(".keyboard")
 let steps = []
 
-setTimeout(function flash(){
-   console.log("What?");
+// game.forEach
+
+function flash(){
    card[game[0]].style.backgroundColor = "red"
-   card[game[1]].style.backgroundColor = "red"
-   card[game[2]].style.backgroundColor = "red"
    setTimeout(function unflash(){
-   card[game[0]].style.backgroundColor = ""
-   card[game[1]].style.backgroundColor = ""
-   card[game[2]].style.backgroundColor = "" 
-   setTimeout(flash, 500) 
-   }, 500)
-}, 500)
+      card[game[0]].style.backgroundColor = ""
+   }, t)
+   setTimeout(flash, t + 500)
+}
+
+setTimeout(flash(game), t)
 
 // for(var i = 0;i < game.length; i++){
 //    let k = i;
@@ -34,9 +29,7 @@ setTimeout(function flash(){
 //    }, t * (k + 2));
 // }
 
-// function recursion() {
-//    console.log("*")
-//    setTimeout(function(){
-//       recursion()
-//    }, 1000)
+// for (var s = 1; s < game.length; s++){
+//    let thisStep = steps
+//    console.log(steps.concat(game.slice(0,s)))
 // }

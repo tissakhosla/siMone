@@ -1,17 +1,43 @@
 
-
-
 let game = [0,1,2,4,0,3,0]
 let cards = document.querySelectorAll(".card")
 let t = 500
 let form = document.querySelector(".keyboard")
-let eachStep = []
 
-for (var s = 1; s <= game.length; s++){
-   let steps = []
-   eachStep.push(steps.concat(game.slice(0,s)))
+console.log(game);
+console.log(cards);
+
+
+function parseGame(sequence){
+   let eachPlay = []
+   for (var s = 1; s <= sequence.length; s++){
+      let steps = []
+      eachPlay.push(steps.concat(sequence.slice(0,s)))
+   }
+   return eachPlay
 }
-console.dir(eachStep)
+
+console.log(parseGame(game))
+
+
+for(var i = 0;i < game.length; i++){
+   let k = i;
+   setTimeout(function(){
+      card[game[k]].style.backgroundColor = "red"
+   }, t * (k + 1));
+   setTimeout(function(){
+      card[game[k]].style.backgroundColor = ""
+   }, t * (k + 2));
+}
+
+// function blink(happy){
+//    setTimeout(function(){
+//       happy.style.backgroundColor = "red"
+//    }, 100)
+//    setTimeout(function(){
+//       happy.style.backgroundColor = ""
+//    }, 200);
+
 
 
 // for (var i = 0; i < cards.length; i++){
@@ -20,12 +46,17 @@ console.dir(eachStep)
 //    })
 // }
 
+
+
+
 // game.forEach(
 //    function (element){
 //          card[element].style.backgroundColor = "red"
 //          setTimeout(flash, t + 500)
 //    }
 // )   
+
+
 
 
 // function flash(){
@@ -40,15 +71,7 @@ console.dir(eachStep)
 
 // flash()
 
-// for(var i = 0;i < game.length; i++){
-//    let k = i;
-//    setTimeout(function(){
-//       card[game[k]].style.backgroundColor = "red"
-//    }, t * (k + 1));
-//    setTimeout(function(){
-//       card[game[k]].style.backgroundColor = ""
-//    }, t * (k + 2));
-// }
+
 
 
 // function add(sequence){

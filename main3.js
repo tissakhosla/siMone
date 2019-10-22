@@ -1,9 +1,12 @@
-let game = [0,1,2,4,0]
+let game = [0,1,2,4,0,3,0]
 let card = document.querySelectorAll(".card")
 let t = 500
+let form = document.querySelector(".keyboard")
+let steps = []
 
-   // setInterval(function() {card[game[0]].style.backgroundColor = "red"}, t*1)
-   // setInterval(function(){card[game[0]].style.backgroundColor = ""}, t*2)
+// for (var s = 1; s < game.length; s++){
+//    console.log(steps.concat(game.slice(0,s)))
+
 
 for(var i = 0;i < game.length; i++){
    let k = i;
@@ -13,6 +16,6 @@ for(var i = 0;i < game.length; i++){
    setTimeout(function(){
       card[game[k]].style.backgroundColor = ""
    }, t * (k + 2));
-
 }
+
 

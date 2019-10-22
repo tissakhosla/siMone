@@ -5,3 +5,5 @@ for(var i = 0;i < 5; i++){
        console.log('count ', k);
    }, 3000 * (k + 1));
 }
+
+//from https://codehandbook.org/understanding-settimeout-inside-for-loop-in-javascript/

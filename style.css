@@ -1,0 +1,10 @@
+body {
+    width: 100vh;
+    background: lightblue;
+}
+
+.button {
+    font-size: 300px;
+    border: solid black 2px;
+    display: inline;
+}

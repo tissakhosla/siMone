@@ -97,29 +97,38 @@ let timeMult = 1
 
 setTimeout(function(){card[game[0]].style.backgroundColor = "red"}, time*timeMult)
 timeMult++
+console.log(timeMult)
 setTimeout(function(){card[game[0]].style.backgroundColor = ""}, time*timeMult)
 setTimeout(function(){card[game[1]].style.backgroundColor = "red"}, time*timeMult)
 timeMult++
+console.log(timeMult)
 setTimeout(function(){card[game[1]].style.backgroundColor = ""}, time*timeMult)
 setTimeout(function(){card[game[2]].style.backgroundColor = "red"}, time*timeMult)
 timeMult++
+console.log(timeMult)
 setTimeout(function(){card[game[2]].style.backgroundColor = ""}, time*timeMult)
 setTimeout(function(){card[game[3]].style.backgroundColor = "red"}, time*timeMult)
 timeMult++
+console.log(timeMult)
 setTimeout(function(){card[game[3]].style.backgroundColor = ""}, time*timeMult)
 setTimeout(function(){card[game[4]].style.backgroundColor = "red"}, time*timeMult)
 timeMult++
+console.log(timeMult)
 setTimeout(function(){card[game[4]].style.backgroundColor = ""}, time*timeMult)
 setTimeout(function(){card[game[5]].style.backgroundColor = "red"}, time*timeMult)
 timeMult++
+console.log(timeMult)
 setTimeout(function(){card[game[5]].style.backgroundColor = ""}, time*timeMult)
 setTimeout(function(){card[game[6]].style.backgroundColor = "red"}, time*timeMult)
 timeMult++
+console.log(timeMult)
 setTimeout(function(){card[game[6]].style.backgroundColor = ""}, time*timeMult)
 setTimeout(function(){card[game[7]].style.backgroundColor = "red"}, time*timeMult)
 timeMult++
+console.log(timeMult)
 
 setTimeout(function(){
+   console.log("blue Flash")
    for (var i = 0; i < card.length; i++){
       card[i].style.backgroundColor = "blue"
       console.log(card[i])
@@ -127,12 +136,14 @@ setTimeout(function(){
 }, time*timeMult)
 
 setInterval(function(){
+   console.log("red flash")
    for (var i = 0; i < game.length; i++){
       card[game[i]].style.backgroundColor = "red"
    }
 }, time*timeMult/2)
 
 setInterval(function(){
+   console.log("blue flash")
    for (var i = 0; i < card.length; i++){
       card[i].style.backgroundColor = "blue"
    }

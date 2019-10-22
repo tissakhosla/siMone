@@ -1,5 +1,5 @@
 
-let game = [0,2,4,2,0,]
+let game = [0,2,4,2,0,3,0]
 let card = document.querySelectorAll(".card")
 
 

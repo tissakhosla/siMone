@@ -11,6 +11,9 @@ function parseGame(sequence){
    return parsedGame
 }
 
+// let simon = parseGame(game)
+// console.log(simon)
+
 function blink(index){
    setTimeout(function(){
       cards[game[index]].style.backgroundColor = "red"
@@ -21,8 +24,7 @@ function blink(index){
 }
 
 let game = [0,1,2,4,0,3,0]
-// let simon = parseGame(game)
-// console.log(simon)
+
 
 for(var i = 0;i < game.length; i++){
    blink(i)

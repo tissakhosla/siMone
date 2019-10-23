@@ -1,6 +1,6 @@
-let T = 300
+let T = 333
 let form = document.querySelector(".keyboard")
-let thisGame = [0,0,1,1,2,2,3,3,0,0,1,2,4,3,3,2,1,2,1,4]
+let thisGame = [0,1,2,3,1,2,0,4,4,4,4,0]
 let KEYS = document.querySelectorAll(".key")
 let COLORS = 
 // {red yellow green aqua blue} x {dark, light}
@@ -9,6 +9,21 @@ let COLORS =
             ["#37A501", "#57F908"],
             ["#048C88", "#01FCF4"],
             ["#011F90", "#0233F9"]]
+
+//a65 s83 d68 f70 g71
+let keysArray = [65, 83, 68, 70, 71]
+
+document.addEventListener("keydown", function(eo){
+   console.log(eo)
+   keyIndex = keysArray.indexOf(eo.keyCode, 0)
+   KEYS[keyIndex].style.backgroundColor = COLORS[keyIndex][1]
+}, false)
+
+document.addEventListener("keyup", function(eo){
+   console.log(eo)
+   keyIndex = keysArray.indexOf(eo.keyCode, 0)
+   KEYS[keyIndex].style.backgroundColor = COLORS[keyIndex][0]
+}, false)
 
 //sets initial keys colors
 function setColors(index){
@@ -26,10 +41,6 @@ function flash(index){
    }, T * (index + .5));
 }
 
-function blink(eo){
-   console.dir(eo)
-   eo.target.style.backgroundColor = "purple"
-}
 //passes game into an array of arrays, each being thisGame+i long
 function parseGame(sequence){//Yet to be used
    let parsedGame = []
@@ -44,10 +55,7 @@ for (var i = 0; i < KEYS.length; i++){
    setColors(i)
 }
 
-for (i = 0; i < KEYS.length; i++){
-   KEYS[i].addEventListener("click", blink)
-   }
+for(var i = 0;i < thisGame.length; i++){
+   flash(i)
+}
 
-// for(var i = 0;i < thisGame.length; i++){
-//    flash(i)
-// }

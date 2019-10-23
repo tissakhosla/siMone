@@ -26,7 +26,8 @@ function keysMatch(){
 }
 
 //sets keyboard controls when called
-function keydown() {
+function keydown(eo) {
+   console.log("ARE WE HERE?")
    keyIndex = KEYARRAY.indexOf(eo.keyCode, 0)
    KEYS[keyIndex].style.backgroundColor = COLORS[keyIndex][1]
 }

@@ -1,7 +1,7 @@
-
+//Functional w/ repeats ie game = [0,0,1,1,2,2,3,3]
 let form = document.querySelector(".keyboard")
-let cards = document.querySelectorAll(".card")
-let t = 500
+let cards = document.querySelectorAll(".key")
+let t = 1000
 
 function parseGame(sequence){
    let parsedGame = []
@@ -21,7 +21,7 @@ function blink(index){
    }, t * (index + 1));
 }
 
-let game = [0,1,2,4,0,3,0]
+let game = [0,0,1,1,0,3,0]
 // let simon = parseGame(game)
 // console.log(simon)
 

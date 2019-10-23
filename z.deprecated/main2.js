@@ -1,24 +1,24 @@
+///FUNCTIONAL repeats!! = check the unflash, there has to be space!
+let game = [0,0,4,2,0,0]
+let KEYS = document.querySelectorAll(".key")
+t = 500
 
-let game = [0,2,4,2,0,3,0]
-let card = document.querySelectorAll(".card")
+setTimeout(function(){KEYS[game[0]].style.backgroundColor = "red"}, t)
 
+setTimeout(function(){KEYS[game[0]].style.backgroundColor = ""}, t*2)
+setTimeout(function(){KEYS[game[1]].style.backgroundColor = "red"}, t*2.5)
 
-setTimeout(function(){card[game[0]].style.backgroundColor = "red"}, 1000)
+setTimeout(function(){KEYS[game[1]].style.backgroundColor = ""}, 3000)
+setTimeout(function(){KEYS[game[2]].style.backgroundColor = "red"}, 3000)
 
-setTimeout(function(){card[game[0]].style.backgroundColor = ""}, 2000)
-setTimeout(function(){card[game[1]].style.backgroundColor = "red"}, 2000)
+setTimeout(function(){KEYS[game[2]].style.backgroundColor = ""}, 4000)
+setTimeout(function(){KEYS[game[3]].style.backgroundColor = "red"}, 4000)
 
-setTimeout(function(){card[game[1]].style.backgroundColor = ""}, 3000)
-setTimeout(function(){card[game[2]].style.backgroundColor = "red"}, 3000)
+setTimeout(function(){KEYS[game[3]].style.backgroundColor = ""}, 5000)
+setTimeout(function(){KEYS[game[4]].style.backgroundColor = "red"}, 5000)
 
-setTimeout(function(){card[game[2]].style.backgroundColor = ""}, 4000)
-setTimeout(function(){card[game[3]].style.backgroundColor = "red"}, 4000)
-
-setTimeout(function(){card[game[3]].style.backgroundColor = ""}, 5000)
-setTimeout(function(){card[game[4]].style.backgroundColor = "red"}, 5000)
-
-setTimeout(function(){card[game[4]].style.backgroundColor = ""}, 5000)
-setTimeout(function(){card[game[5]].style.backgroundColor = "red"}, 5000)
+setTimeout(function(){KEYS[game[4]].style.backgroundColor = ""}, 5000)
+setTimeout(function(){KEYS[game[5]].style.backgroundColor = "red"}, 5000)
 
 // setTimeout(function(){setInterval(function(){
 //    for (var i = 0; i < game.length; i++){

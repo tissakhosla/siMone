@@ -1,6 +1,6 @@
-let T = 500
+let T = 300
 let form = document.querySelector(".keyboard")
-let thisGame = [0,1,2,3,4,0]
+let thisGame = [0,0,1,1,2,2,3,3,0,0,1,2,4,3,3,2,1,2,1,4]
 let KEYS = document.querySelectorAll(".key")
 let COLORS = 
 // {red yellow green aqua blue} x {dark, light}
@@ -13,6 +13,23 @@ let COLORS =
 //sets initial keys colors
 function setColors(index){
    KEYS[index].style.backgroundColor = COLORS[index][0]
+   return
+}
+
+for (var i = 0; i < KEYS.length; i++){
+   setColors(i)
+}
+
+function blink(index){
+   setTimeout(function(){
+      console.dir([thisGame[index]])
+      KEYS[thisGame[index]].style.backgroundColor = COLORS[thisGame[index]][1]
+
+   }, T * (index));
+   setTimeout(function(){
+      console.dir([thisGame[index]])
+      KEYS[thisGame[index]].style.backgroundColor = COLORS[thisGame[index]][0]
+   }, T * (index + .5));
 }
 
 //passes game into an array of arrays, each being thisGame+i long
@@ -23,25 +40,11 @@ function parseGame(sequence){//Yet to be used
       parsedGame.push(steps.concat(sequence.slice(0,s)))
    }
    return parsedGame
-}
+}//YET UNUSED // although it works
 
-function blink(index){
-   setTimeout(function(){
-      console.dir(KEYS[thisGame[index]])
-      KEYS[thisGame[index]].style.backgroundColor = COLORS[index][1]
-   }, T * (index));
-   setTimeout(function(){
-      console.dir(KEYS[thisGame[index]])
-      KEYS[thisGame[index]].style.backgroundColor = COLORS[index][0]
-   }, T * (index + 1));
-}
-
-
-for (var i = 0; i < KEYS.length; i++){
-   setColors(i)
-}
 
 
 for(var i = 0;i < thisGame.length; i++){
+   console.log(i)
    blink(i)
 }

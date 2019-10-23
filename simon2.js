@@ -55,8 +55,9 @@ function setColors(index) {
    KEYS[index].style.backgroundColor = COLORS[index][0]
 }
 
+//flashes sequence when called
 function flash(index) {
-   const T = 1000
+   const T = 500
    setTimeout(function() {
       KEYS[thisGame[index]].style.backgroundColor = COLORS[thisGame[index]][1]
    }, T * (index));
@@ -73,7 +74,7 @@ function parseGame(sequence) {//Yet to be used
       parsedGame.push(steps.concat(sequence.slice(0,s)))
    }
    return parsedGame
-}
+} // This is now deprecated
 
 function playGame(numKeys) {
    let subGame = thisGame.slice(0, turn)
@@ -92,15 +93,19 @@ for (var i = 0; i < KEYS.length; i++) {
    setColors(i)
 }
 
-let subGames = parseGame(thisGame)
+// let subGames = parseGame(thisGame)
 
-playGame(turn)
-
-// for testing (click next for moving on)
 document.querySelector(".keyboard")
    .addEventListener("submit", function(eo){
-      eo.preventDefault() 
-      playGame(subGames[turn])
-      turn++
+      eo.preventDefault()
+      playGame(turn)
    })
+
+// for testing (click next for moving on)
+// document.querySelector(".keyboard")
+//    .addEventListener("submit", function(eo){
+//       eo.preventDefault() 
+//       playGame(subGames[turn])
+//       turn++
+//    })
 

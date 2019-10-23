@@ -1,18 +1,18 @@
-let T = 300
-let form = document.querySelector(".keyboard")
+const T = 300
+const form = document.querySelector(".keyboard")
 let USER = []
 let thisGame = [0,1,2,3,1,2,0,4]
                   //a65 s83 d68 f70 g71
 let thisKeyArray = [65, 83, 68, 70, 71]
-let KEYS = document.querySelectorAll(".key")
+const KEYS = document.querySelectorAll(".key")
 
 let COLORS = 
 // {red yellow green aqua blue} x {dark, light}
-            [["#B22102", "#F92E02"], 
-            ["#AEA722", "#F5F902"],
-            ["#37A501", "#57F908"],
-            ["#048C88", "#01FCF4"],
-            ["#011F90", "#0233F9"]]
+   [  ["#B22102", "#F92E02"], 
+      ["#AEA722", "#F5F902"],
+      ["#37A501", "#57F908"],
+      ["#048C88", "#01FCF4"],
+      ["#011F90", "#0233F9"]  ]
 
 //sets keyboard controls when called
 function keyControl(keyArray){
@@ -51,7 +51,13 @@ function parseGame(sequence){//Yet to be used
       parsedGame.push(steps.concat(sequence.slice(0,s)))
    }
    return parsedGame
-}//YET UNUSED // although it works
+}
+
+function playGame(game){
+   for(var i = 0;i < game.length; i++){
+      flash(i)
+   }
+}
 
 keyControl(thisKeyArray)
 
@@ -59,19 +65,12 @@ for (var i = 0; i < KEYS.length; i++){
    setColors(i)
 }
 
-// for(var i = 0;i < thisGame.length; i++){
-//    flash(i)
-// }
-
-
-let j = 0
-let it = parseGame(thisGame)
+let turn = 0
+let subGames = parseGame(thisGame)
 form.addEventListener("submit", function(eo){
    eo.preventDefault() 
-   for(var i = 0;i < it[j].length; i++){
-      flash(i)
-   }
-   j++
+   playGame(subGames[turn])
+   turn++
 })
 
 

@@ -31,18 +31,21 @@ function keydown() {
    KEYS[keyIndex].style.backgroundColor = COLORS[keyIndex][1]
 }
 
-function keyup(eo){
+function keyup(eo) {
+   
    keyIndex = KEYARRAY.indexOf(eo.keyCode, 0)
    KEYS[keyIndex].style.backgroundColor = COLORS[keyIndex][0] 
 
    userKeys.push(keyIndex)
-
-   if (keysMatch()){
-      turn++
-      alert("pause")
-      playGame(turn)
-   } else {
-      alert("game over")
+   if(userKeys.length === turn){
+      if (keysMatch()) {
+         userKeys = []
+         turn++
+         // alert("pause")
+         playGame(turn)
+      } else {
+         alert("game over")
+      }
    }
 }
 

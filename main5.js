@@ -1,34 +1,49 @@
 
-let game = [0,1,2,4,0,3,0]
+let form = document.querySelector(".keyboard")
 let cards = document.querySelectorAll(".card")
 let t = 500
-let form = document.querySelector(".keyboard")
-
-console.log(game);
-console.log(cards);
-
 
 function parseGame(sequence){
-   let eachPlay = []
+   let parsedGame = []
    for (var s = 1; s <= sequence.length; s++){
       let steps = []
-      eachPlay.push(steps.concat(sequence.slice(0,s)))
+      parsedGame.push(steps.concat(sequence.slice(0,s)))
    }
-   return eachPlay
+   return parsedGame
+}
+function blink(index){
+   setTimeout(function(){
+      cards[game[index]].style.backgroundColor = "red"
+   }, t * (index + 1));
+   setTimeout(function(){
+      cards[game[index]].style.backgroundColor = ""
+   }, t * (index + 2));
 }
 
-console.log(parseGame(game))
-
+let game = [0,1,2,4,0,3,0]
+// let simon = parseGame(game)
+// console.log(simon)
 
 for(var i = 0;i < game.length; i++){
-   let k = i;
-   setTimeout(function(){
-      card[game[k]].style.backgroundColor = "red"
-   }, t * (k + 1));
-   setTimeout(function(){
-      card[game[k]].style.backgroundColor = ""
-   }, t * (k + 2));
+   blink(i)
 }
+
+
+
+
+
+// function flash(){
+//    setTimeout(function() {
+//       cards[game[0]].style.backgroundColor = "red"
+//       setTimeout(function unflash(){
+//          cards[game[0]].style.backgroundColor = ""
+//       }, t)
+//       setTimeout(flash, t + 500)
+//    }, t)
+// }
+
+// 
+
 
 // function blink(happy){
 //    setTimeout(function(){
@@ -38,6 +53,23 @@ for(var i = 0;i < game.length; i++){
 //       happy.style.backgroundColor = ""
 //    }, 200);
 
+// flash()
+
+// let thisRound = simon[4]
+// for(var j = 0; j < simon.length; j++){
+//    let thisRound = simon[j]
+//    console.log(simon[j])
+//    for(var i = 0;i < thisRound.length; i++){
+//       let k = i;
+//       setTimeout(function(){
+//          cards[thisRound[k]].style.backgroundColor = "red"
+//          console.log(1)
+//       }, t * (k + 1), i);
+//       setTimeout(function(){
+//          cards[thisRound[k]].style.backgroundColor = ""
+//       }, t * (k + 2));
+//    }``
+// }
 
 
 // for (var i = 0; i < cards.length; i++){
@@ -47,29 +79,6 @@ for(var i = 0;i < game.length; i++){
 // }
 
 
-
-
-// game.forEach(
-//    function (element){
-//          card[element].style.backgroundColor = "red"
-//          setTimeout(flash, t + 500)
-//    }
-// )   
-
-
-
-
-// function flash(){
-//    setTimeout(function() {
-//       card[game[0]].style.backgroundColor = "red"
-//       setTimeout(function unflash(){
-//          card[game[0]].style.backgroundColor = ""
-//       }, t)
-//       setTimeout(flash, t + 500)
-//    }, t)
-// }
-
-// flash()
 
 
 

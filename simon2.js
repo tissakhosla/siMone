@@ -39,6 +39,7 @@ function keyup(eo){
 
    if (keysMatch()){
       turn++
+      alert("pause")
       playGame(turn)
    } else {
       alert("game over")

@@ -10,28 +10,25 @@ let COLORS =
             ["#048C88", "#01FCF4"],
             ["#011F90", "#0233F9"]]
 
+
 //sets initial keys colors
 function setColors(index){
    KEYS[index].style.backgroundColor = COLORS[index][0]
    return
 }
 
-for (var i = 0; i < KEYS.length; i++){
-   setColors(i)
-}
-
-function blink(index){
+function flash(index){
    setTimeout(function(){
-      console.dir([thisGame[index]])
       KEYS[thisGame[index]].style.backgroundColor = COLORS[thisGame[index]][1]
 
    }, T * (index));
    setTimeout(function(){
-      console.dir([thisGame[index]])
       KEYS[thisGame[index]].style.backgroundColor = COLORS[thisGame[index]][0]
    }, T * (index + .5));
 }
 
+function blink(eo){
+}
 //passes game into an array of arrays, each being thisGame+i long
 function parseGame(sequence){//Yet to be used
    let parsedGame = []
@@ -42,9 +39,14 @@ function parseGame(sequence){//Yet to be used
    return parsedGame
 }//YET UNUSED // although it works
 
+for (var i = 0; i < KEYS.length; i++){
+   setColors(i)
+}
 
+for (i = 0; i < KEYS.length; i++){
+   KEYS[i].addEventListener("click", blink)
+   }
 
 for(var i = 0;i < thisGame.length; i++){
-   console.log(i)
-   blink(i)
+   flash(i)
 }

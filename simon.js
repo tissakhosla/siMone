@@ -1,4 +1,4 @@
-let T = 500
+let T = 300
 let form = document.querySelector(".keyboard")
 let USER = []
 let thisGame = [0,1,2,3,1,2,0,4]
@@ -63,16 +63,16 @@ for (var i = 0; i < KEYS.length; i++){
 //    flash(i)
 // }
 
+
 let j = 0
 let it = parseGame(thisGame)
 form.addEventListener("submit", function(eo){
-      eo.preventDefault() 
-      for(var i = 0;i < it[j].length; i++){
-         flash(i)
-      }
-      j++
-      console.log(j)
-   })
+   eo.preventDefault() 
+   for(var i = 0;i < it[j].length; i++){
+      flash(i)
+   }
+   j++
+})
 
 
 

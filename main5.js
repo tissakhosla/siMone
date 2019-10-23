@@ -14,10 +14,10 @@ function parseGame(sequence){
 function blink(index){
    setTimeout(function(){
       cards[game[index]].style.backgroundColor = "red"
-   }, t * (index + 1));
+   }, t * (index));
    setTimeout(function(){
       cards[game[index]].style.backgroundColor = ""
-   }, t * (index + 2));
+   }, t * (index + 1));
 }
 
 let game = [0,1,2,4,0,3,0]

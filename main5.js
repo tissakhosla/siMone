@@ -11,6 +11,7 @@ function parseGame(sequence){
    }
    return parsedGame
 }
+
 function blink(index){
    setTimeout(function(){
       cards[game[index]].style.backgroundColor = "red"

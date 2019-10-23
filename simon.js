@@ -10,7 +10,6 @@ let COLORS =
             ["#048C88", "#01FCF4"],
             ["#011F90", "#0233F9"]]
 
-
 //sets initial keys colors
 function setColors(index){
    KEYS[index].style.backgroundColor = COLORS[index][0]
@@ -28,6 +27,8 @@ function flash(index){
 }
 
 function blink(eo){
+   console.dir(eo)
+   eo.target.style.backgroundColor = "purple"
 }
 //passes game into an array of arrays, each being thisGame+i long
 function parseGame(sequence){//Yet to be used
@@ -47,6 +48,6 @@ for (i = 0; i < KEYS.length; i++){
    KEYS[i].addEventListener("click", blink)
    }
 
-for(var i = 0;i < thisGame.length; i++){
-   flash(i)
-}
+// for(var i = 0;i < thisGame.length; i++){
+//    flash(i)
+// }

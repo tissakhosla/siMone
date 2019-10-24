@@ -2,6 +2,7 @@
 const TIMEOUT = 300
 
 const thisGame = [0,0,2]
+const nextGame = [4,3,2,1,3,4,3,4,2,3,2,3,1,0,0]
 
 let userKeys = []
 let turn = 0
@@ -51,10 +52,13 @@ function keyControl() {
 
       userKeys.push(keyIndex)
 
-      if(userKeys.length === turn) {//got all the keys? 
+      if (userKeys.length === turn) {//got all the keys? 
          if (keysMatch()) {
             userKeys = []
             turn++
+            if (turn > thisGame.length){
+               alert("SUCCESS! (you completed this round")
+            }
 
             flashKeys()
          } else {

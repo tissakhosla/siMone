@@ -1,27 +1,26 @@
 
 const TIMEOUT = 300
 
-const thisGame = [0,1,2,3,1,2,0,4,0,1,0,2,3,0,1,0,0,0,4,0,0,0]
+const thisGame = [0,0,2]
 
 let userKeys = []
-let turn = 1
+let turn = 0
 
 const KEYS = document.querySelectorAll(".key")
 
 let COLORS = 
 // {red yellow green aqua blue} x {dark, light}
-   [  ["#B22102", "#F92E02"], 
-      ["#AEA722", "#F5F902"],
-      ["#37A501", "#57F908"],
-      ["#048C88", "#01FCF4"],
-      ["#011F90", "#0233F9"]  ]
+[["#B22102", "#F92E02"], 
+["#AEA722", "#F5F902"],
+["#37A501", "#57F908"],
+["#048C88", "#01FCF4"],
+["#011F90", "#0233F9"]]
+
 
 function playAudio(){
-   document.querySelector("#C4").play()
+   document.querySelector("#kick").play()
 }
-function pauseAudio(){
-   document.querySelector("#C4").pause()
-}
+
 
 function keysMatch() {
    let subGame = thisGame.slice(0, turn)
@@ -39,14 +38,14 @@ function keyControl() {
    const KEYARRAY = [65, 83, 68, 70, 71]
 
    function keydown(eo) {
-      playAudio()
+      // playAudio()
       keyIndex = KEYARRAY.indexOf(eo.keyCode)
       KEYS[keyIndex].style.backgroundColor = COLORS[keyIndex][1]
       
    }
 
    function keyup(eo) {
-      pauseAudio()
+      // pauseAudio()
       keyIndex = KEYARRAY.indexOf(eo.keyCode)
       KEYS[keyIndex].style.backgroundColor = COLORS[keyIndex][0] 
 
@@ -86,7 +85,8 @@ function sleep (time) {
 function flashKeys() {
    sleep(TIMEOUT).then(() => {
       let subGame = thisGame.slice(0, turn)
-      console.log(subGame)
+      console.log(`current sequence ${subGame}`)
+      console.log(`turn: ${turn}`)
       for(var i = 0;i < turn; i++) {
          flash(i, subGame[i])
       }   
@@ -106,20 +106,11 @@ document.querySelector(".keyboard")
       eo.preventDefault()
       turn = 1
       userKeys = []
-      console.log(turn)
-      console.log(thisGame)
+      
+      console.log(`full sequence: ${thisGame}`)
       //thisGame = [random list]
-      playAudio()
+
       flashKeys()
    })
-
-
-//HINTKEY???
-// for testing (click next for moving on)
-// document.querySelector(".keyboard")
-//    .addEventListener("submit", function(eo){
-//       eo.preventDefault() 
-//       flashKeys()
-//    })
 
 

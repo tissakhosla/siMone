@@ -2,7 +2,7 @@
 const TIMEOUT = 400
 
 const GAMES = 
-[[0,4],[0,1,3,2,4], [0,1,2,3,1,2,0,4], [0,2,1,3,2,4,3,1,0]
+[[3,4], [0,1,3,2,4], [0,1,2,3,1,2,0,4], [0,2,1,3,2,4,3,1,0]
  [4,3,2,1,3,2,4,0], [2,3,4,2,1,2,3,1,0,4,2,4,0,1,2,3,0] 
  [0,2,4,2,3,2,1,2,0,2,3,2,1,3,0,3,4,4,4,2,0,0,0]]
 let sequence = 0
@@ -18,11 +18,6 @@ let COLORS =
  ["#37A501", "#57F908"],
  ["#048C88", "#01FCF4"],
  ["#011F90", "#0233F9"]]
-
-
-function playAudio(){
-   document.querySelector("#kick").play()
-}
 
 
 function keysMatch() {
@@ -41,13 +36,11 @@ function keyControl() {
    const KEYARRAY = [65, 83, 68, 70, 71]
 
    function keydown(eo) {
-      // playAudio()
       keyIndex = KEYARRAY.indexOf(eo.keyCode)
       KEYS[keyIndex].style.backgroundColor = COLORS[keyIndex][1]
    }
 
    function keyup(eo) {
-      // pauseAudio()
       keyIndex = KEYARRAY.indexOf(eo.keyCode)
       KEYS[keyIndex].style.backgroundColor = COLORS[keyIndex][0] 
       
@@ -78,6 +71,7 @@ function keyControl() {
 //flashes sequence when called
 function flash(index, keyindex) {
    setTimeout(function() {
+      document.querySelector("#c2").play()
       KEYS[keyindex].style.backgroundColor = COLORS[keyindex][1]
    }, TIMEOUT * (index));
    setTimeout(function() {
@@ -92,6 +86,7 @@ function sleep (time) {
 
 function flashKeys() {
    sleep(TIMEOUT).then(() => {
+      
       let subGame = GAMES[sequence].slice(0, turn)
       console.log(`current sequence ${subGame}`)
       console.log(`turn: ${turn}`)
@@ -103,7 +98,6 @@ function flashKeys() {
 
 //ONLOAD
 keyControl()
-
 for (var i = 0; i < KEYS.length; i++) {
    KEYS[i].style.backgroundColor = COLORS[i][0]
 }
@@ -111,6 +105,8 @@ for (var i = 0; i < KEYS.length; i++) {
 //
 document.querySelector(".keyboard")
    .addEventListener("submit", function(eo){
+      // document.querySelector('#c2').play()
+
       eo.preventDefault()
       turn = 1
       userKeys = []
@@ -119,6 +115,7 @@ document.querySelector(".keyboard")
       //thisGame = [random list]
 
       flashKeys()
+      
    })
 
 

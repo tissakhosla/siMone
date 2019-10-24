@@ -1,7 +1,8 @@
 const thisGame = [0,1,2,3,1,2,0,4]
+// const thisGame = [3,2,1,0]
 //a65 s83 d68 f70 g71
 const KEYARRAY = [65, 83, 68, 70, 71]
-
+const TIMEOUT = 1000
 let userKeys = []
 let turn = 1
 
@@ -27,14 +28,12 @@ function keysMatch(){
 
 //sets keyboard controls when called
 function keydown(eo) {
-   console.log("ARE WE HERE?")
-   keyIndex = KEYARRAY.indexOf(eo.keyCode, 0)
+   keyIndex = KEYARRAY.indexOf(eo.keyCode)
    KEYS[keyIndex].style.backgroundColor = COLORS[keyIndex][1]
 }
 
 function keyup(eo) {
-   
-   keyIndex = KEYARRAY.indexOf(eo.keyCode, 0)
+   keyIndex = KEYARRAY.indexOf(eo.keyCode)
    KEYS[keyIndex].style.backgroundColor = COLORS[keyIndex][0] 
 
    userKeys.push(keyIndex)
@@ -43,7 +42,7 @@ function keyup(eo) {
          userKeys = []
          turn++
          // alert("pause")
-         playGame(turn)
+         playGame()
       } else {
          alert("game over")
       }
@@ -56,32 +55,28 @@ function setColors(index) {
 }
 
 //flashes sequence when called
-function flash(index) {
-   const T = 500
+function flash(index, keyindex) {
    setTimeout(function() {
-      KEYS[thisGame[index]].style.backgroundColor = COLORS[thisGame[index]][1]
-   }, T * (index));
+      KEYS[keyindex].style.backgroundColor = COLORS[keyindex][1]
+   }, TIMEOUT * (index));
    setTimeout(function() {
-      KEYS[thisGame[index]].style.backgroundColor = COLORS[thisGame[index]][0]
-   }, T * (index + .5));
+      KEYS[keyindex].style.backgroundColor = COLORS[keyindex][0]
+   }, TIMEOUT * (index + .5));
 }
 
-//passes game into an array of arrays, each being thisGame+i long
-function parseGame(sequence) {//Yet to be used
-   let parsedGame = []
-   for (var s = 1; s <= sequence.length; s++) {
-      let steps = []
-      parsedGame.push(steps.concat(sequence.slice(0,s)))
-   }
-   return parsedGame
-} // This is now deprecated
+// https://zeit.co/blog/async-and-await
+function sleep (time) {
+   return new Promise((resolve) => setTimeout(resolve, time));
+ }
 
-function playGame(numKeys) {
-   let subGame = thisGame.slice(0, turn)
-
-   for(var i = 0;i < numKeys; i++) {
-      flash(subGame[i])
-   }
+function playGame() {
+   sleep(TIMEOUT).then(() => {
+      let subGame = thisGame.slice(0, turn)
+      console.log(subGame)
+      for(var i = 0;i < turn; i++) {
+         flash(i, subGame[i])
+      }   
+   })
 }
 
 //onload
@@ -93,12 +88,16 @@ for (var i = 0; i < KEYS.length; i++) {
    setColors(i)
 }
 
-// let subGames = parseGame(thisGame)
-
 document.querySelector(".keyboard")
    .addEventListener("submit", function(eo){
       eo.preventDefault()
-      playGame(turn)
+      turn = 1
+      userKeys = []
+      console.log(turn)
+      console.log(thisGame)
+      //thisGame = [random list]
+      
+      playGame()
    })
 
 // for testing (click next for moving on)

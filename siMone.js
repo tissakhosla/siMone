@@ -1,9 +1,11 @@
 
-const TIMEOUT = 300
+const TIMEOUT = 400
 
-const thisGame = [0,0,2]
-const nextGame = [4,3,2,1,3,4,3,4,2,3,2,3,1,0,0]
-
+const GAMES = 
+[[0,4],[0,1,3,2,4], [0,1,2,3,1,2,0,4], [0,2,1,3,2,4,3,1,0]
+ [4,3,2,1,3,2,4,0], [2,3,4,2,1,2,3,1,0,4,2,4,0,1,2,3,0] 
+ [0,2,4,2,3,2,1,2,0,2,3,2,1,3,0,3,4,4,4,2,0,0,0]]
+let sequence = 0
 let userKeys = []
 let turn = 0
 
@@ -12,10 +14,10 @@ const KEYS = document.querySelectorAll(".key")
 let COLORS = 
 // {red yellow green aqua blue} x {dark, light}
 [["#B22102", "#F92E02"], 
-["#AEA722", "#F5F902"],
-["#37A501", "#57F908"],
-["#048C88", "#01FCF4"],
-["#011F90", "#0233F9"]]
+ ["#AEA722", "#F5F902"],
+ ["#37A501", "#57F908"],
+ ["#048C88", "#01FCF4"],
+ ["#011F90", "#0233F9"]]
 
 
 function playAudio(){
@@ -24,7 +26,7 @@ function playAudio(){
 
 
 function keysMatch() {
-   let subGame = thisGame.slice(0, turn)
+   let subGame = GAMES[sequence].slice(0, turn)
 
    for (var k = 0; k < turn; k++) {
       if (userKeys[k] != subGame[k]) {
@@ -42,22 +44,24 @@ function keyControl() {
       // playAudio()
       keyIndex = KEYARRAY.indexOf(eo.keyCode)
       KEYS[keyIndex].style.backgroundColor = COLORS[keyIndex][1]
-      
    }
 
    function keyup(eo) {
       // pauseAudio()
       keyIndex = KEYARRAY.indexOf(eo.keyCode)
       KEYS[keyIndex].style.backgroundColor = COLORS[keyIndex][0] 
-
+      
       userKeys.push(keyIndex)
 
       if (userKeys.length === turn) {//got all the keys? 
          if (keysMatch()) {
             userKeys = []
             turn++
-            if (turn > thisGame.length){
+            if (turn > GAMES[sequence].length){
                alert("SUCCESS! (you completed this round")
+               turn = 0
+               sequence++
+               flashKeys() 
             }
 
             flashKeys()
@@ -88,7 +92,7 @@ function sleep (time) {
 
 function flashKeys() {
    sleep(TIMEOUT).then(() => {
-      let subGame = thisGame.slice(0, turn)
+      let subGame = GAMES[sequence].slice(0, turn)
       console.log(`current sequence ${subGame}`)
       console.log(`turn: ${turn}`)
       for(var i = 0;i < turn; i++) {
@@ -111,7 +115,7 @@ document.querySelector(".keyboard")
       turn = 1
       userKeys = []
       
-      console.log(`full sequence: ${thisGame}`)
+      console.log(`full sequence: ${GAMES[sequence]}`)
       //thisGame = [random list]
 
       flashKeys()

@@ -1,8 +1,7 @@
+const TIMEOUT = 250
+
 const thisGame = [0,1,2,3,1,2,0,4]
-// const thisGame = [3,2,1,0]
-//a65 s83 d68 f70 g71
-const KEYARRAY = [65, 83, 68, 70, 71]
-const TIMEOUT = 1000
+
 let userKeys = []
 let turn = 1
 
@@ -16,42 +15,46 @@ let COLORS =
       ["#048C88", "#01FCF4"],
       ["#011F90", "#0233F9"]  ]
 
-function keysMatch(){
+function keysMatch() {
    let subGame = thisGame.slice(0, turn)
-   for (var k = 0; k < subGame.length; k++) {
-      if (userKeys[k] != subGame[k]){
+
+   for (var k = 0; k < turn; k++) {
+      if (userKeys[k] != subGame[k]) {
          return false
       } 
    }
    return true 
 }
 
-//sets keyboard controls when called
-function keydown(eo) {
-   keyIndex = KEYARRAY.indexOf(eo.keyCode)
-   KEYS[keyIndex].style.backgroundColor = COLORS[keyIndex][1]
-}
+function keyControl() {
+   //                a   s   d   f   g
+   const KEYARRAY = [65, 83, 68, 70, 71]
 
-function keyup(eo) {
-   keyIndex = KEYARRAY.indexOf(eo.keyCode)
-   KEYS[keyIndex].style.backgroundColor = COLORS[keyIndex][0] 
+   function keydown(eo) {
+      keyIndex = KEYARRAY.indexOf(eo.keyCode)
+      KEYS[keyIndex].style.backgroundColor = COLORS[keyIndex][1]
+   }
 
-   userKeys.push(keyIndex)
-   if(userKeys.length === turn){
-      if (keysMatch()) {
-         userKeys = []
-         turn++
-         // alert("pause")
-         playGame()
-      } else {
-         alert("game over")
+   function keyup(eo) {
+      keyIndex = KEYARRAY.indexOf(eo.keyCode)
+      KEYS[keyIndex].style.backgroundColor = COLORS[keyIndex][0] 
+
+      userKeys.push(keyIndex)
+
+      if(userKeys.length === turn) {//got all the keys? 
+         if (keysMatch()) {
+            userKeys = []
+            turn++
+
+            flashKeys()
+         } else {
+            alert("FAIL (wrong key)")
+         }
       }
    }
-}
 
-//sets initial keys colors when called
-function setColors(index) {
-   KEYS[index].style.backgroundColor = COLORS[index][0]
+   document.addEventListener("keydown", keydown, false)
+   document.addEventListener("keyup", keyup, false)
 }
 
 //flashes sequence when called
@@ -64,12 +67,12 @@ function flash(index, keyindex) {
    }, TIMEOUT * (index + .5));
 }
 
-// https://zeit.co/blog/async-and-await
+// https://davidwalsh.name/javascript-sleep-function
 function sleep (time) {
    return new Promise((resolve) => setTimeout(resolve, time));
  }
 
-function playGame() {
+function flashKeys() {
    sleep(TIMEOUT).then(() => {
       let subGame = thisGame.slice(0, turn)
       console.log(subGame)
@@ -79,15 +82,14 @@ function playGame() {
    })
 }
 
-//onload
-document.addEventListener("keydown", keydown, false)
-document.addEventListener("keyup", keyup, false)
-
+//ONLOAD
+keyControl()
 
 for (var i = 0; i < KEYS.length; i++) {
-   setColors(i)
+   KEYS[i].style.backgroundColor = COLORS[i][0]
 }
 
+//
 document.querySelector(".keyboard")
    .addEventListener("submit", function(eo){
       eo.preventDefault()
@@ -97,14 +99,15 @@ document.querySelector(".keyboard")
       console.log(thisGame)
       //thisGame = [random list]
       
-      playGame()
+      flashKeys()
    })
 
+
+//HINTKEY???
 // for testing (click next for moving on)
 // document.querySelector(".keyboard")
 //    .addEventListener("submit", function(eo){
 //       eo.preventDefault() 
-//       playGame(subGames[turn])
-//       turn++
+//       flashKeys()
 //    })
 

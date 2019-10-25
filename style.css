@@ -1,22 +1,26 @@
 body {
    background: lightblue;
+   max-height: 100vh;
 }
 
 .keyboard {
    min-width: 100vh;
    display: flex;
-   flex-wrap: wrap;
    justify-content: space-around;
    padding: 10px 0px;
 }
 
 .key {
+   padding: 20px;
    height: 80vh;
-   font-size: 70px;
-   padding: 30px;
+   width: 20vh;
    border: solid black 2px;
-   display: inline;
-   background: white;
+}
+
+.key-text {
+   font-size: 70px;
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+   margin: 70vh 0vh 0vh 0vh;
 }
 
 .play {

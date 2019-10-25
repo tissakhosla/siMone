@@ -1,5 +1,5 @@
 
-const TIMEOUT = 400
+const TIMEOUT = 300
 
 const GAMES = 
 [[3,4], [0,1,3,2,4], [0,1,2,3,1,2,0,4], [0,2,1,3,2,4,3,1,0],
@@ -23,7 +23,7 @@ let COLORS =
 
 function keysMatch() {
    let subGame = GAMES[round].slice(0, turn)
-   
+
    for (var k = 0; k < turn; k++) {
       if (userKeys[k] != subGame[k]) {
          return false

@@ -1,30 +1,39 @@
 body {
-   background: lightblue;
-   max-height: 100vh;
+   background: #87d8f3;
+   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 
+               'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+}
+
+main {
+   margin: 5vh;
+   
 }
 
 .keyboard {
-   min-width: 100vh;
    display: flex;
-   justify-content: space-around;
-   padding: 10px 0px;
+   flex-direction: row;
+   justify-content: space-around; 
+   
 }
 
-.key {
-   padding: 20px;
+.key, input[type=submit] {
+   border: solid black 2px;
    height: 80vh;
    width: 20vh;
-   border: solid black 2px;
+}
+
+input[type=submit] {
+   font-size: larger;
+   font-weight: bolder;
+   background: rgb(173, 6, 179);
 }
 
 .key-text {
-   font-size: 70px;
-   font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
-   margin: 70vh 0vh 0vh 0vh;
-}
+   font-size: x-large;
+   font-weight: bolder;
+   color: lightblue;
+   border: solid lightblue 2px;
+   padding: 10px 10px 10px 10px;
+   margin: 590px 100px 0px 20px;
 
-.play {
-   width: 30vh;
-   padding: 50px;
 }
-

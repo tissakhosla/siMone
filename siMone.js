@@ -1,5 +1,5 @@
 
-const TIMEOUT = 300
+const TIMEOUT = 200
 
 const GAMES = 
 [[3,4], [0,1,3,2,4], [0,1,2,3,1,2,0,4], [0,2,1,3,2,4,3,1,0],
@@ -18,7 +18,7 @@ let COLORS =
  ["#AEA722", "#F5F902"],
  ["#37A501", "#57F908"],
  ["#048C88", "#01FCF4"],
- ["#011F90", "#0233F9"]]
+ ["#011F90", "#2659fd"]]
 
 
 function keysMatch() {
@@ -112,6 +112,7 @@ function flashKeys() {
 }
 
 //ONLOAD
+alert("Click jsBach to play\nClick again to go to next round.")
 keyControl()
 
 for (var i = 0; i < KEYS.length; i++) {

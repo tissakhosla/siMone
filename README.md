@@ -1,5 +1,5 @@
 ## siMone
-[Play the Game!](https://tissakhosla.github.io/siMone/docs/)
+[Play the Game!](https://tissakhosla.github.io/siMone/)
 
 ### Languages/Tools
 -  JavaScript

@@ -1,5 +1,5 @@
 
-const TIMEOUT = 300
+const TIMEOUT = 400
 
 const GAMES = 
 [[3,4], [0,1,3,2,4], [0,1,2,3,1,2,0,4], [0,2,1,3,2,4,3,1,0],
@@ -9,6 +9,7 @@ let round = 0
 let userKeys = []
 let turn = 0
 
+const NOTES = document.querySelectorAll("audio")
 const KEYS = document.querySelectorAll(".key")
 
 let COLORS = 
@@ -46,6 +47,9 @@ function keyControl() {
    function keydown(eo) {
       keyIndex = KEYARRAY.indexOf(eo.keyCode)
       KEYS[keyIndex].style.backgroundColor = COLORS[keyIndex][1]
+      let audio = NOTES[keyIndex]
+      audio.play()
+      audio.currentTime = 0
    }
 
    function keyup(eo) {
@@ -79,9 +83,11 @@ function keyControl() {
 
 //flashes round when called
 function flash(index, keyindex) {
-   setTimeout(function() {
+   setTimeout(function() { 
       KEYS[keyindex].style.backgroundColor = COLORS[keyindex][1]
-            
+      let audio = NOTES[keyindex]
+      audio.play()
+      audio.currentTime = 0
    }, TIMEOUT * (index));
    setTimeout(function() {
       KEYS[keyindex].style.backgroundColor = COLORS[keyindex][0]
@@ -107,14 +113,14 @@ function flashKeys() {
 
 //ONLOAD
 keyControl()
+
 for (var i = 0; i < KEYS.length; i++) {
    KEYS[i].style.backgroundColor = COLORS[i][0]
 }
 
-//
+
 document.querySelector(".keyboard")
    .addEventListener("submit", function(eo){
-      // document.querySelector('#c2').play()
 
       eo.preventDefault()
       turn = 1

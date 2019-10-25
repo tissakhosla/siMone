@@ -1,16 +1,22 @@
+body {
+   background: lightblue;
+}
+
 .keyboard {
    min-width: 100vh;
    display: flex;
    flex-wrap: wrap;
-   background: lightblue;
+   justify-content: space-around;
+   padding: 10px 0px;
 }
 
 .key {
-    font-size: 70px;
-    padding: 30px;
-    border: solid black 2px;
-    display: inline;
-    background: white;
+   height: 80vh;
+   font-size: 70px;
+   padding: 30px;
+   border: solid black 2px;
+   display: inline;
+   background: white;
 }
 
 .play {

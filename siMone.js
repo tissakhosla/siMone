@@ -23,7 +23,7 @@ let COLORS =
 
 function keysMatch() {
    let subGame = GAMES[round].slice(0, turn)
-
+   
    for (var k = 0; k < turn; k++) {
       if (userKeys[k] != subGame[k]) {
          return false

@@ -73,6 +73,7 @@ function keyControl() {
             flashKeys()
          } else {
             alert(`Ooops!\nPassed round ${round}\nScore: ${score()}\nGood Game`)
+            round = 0
          }
       }
    }
@@ -112,8 +113,9 @@ function flashKeys() {
 }
 
 //ONLOAD
-alert("Click jsBach to play\nClick again to go to next round.")
+
 keyControl()
+alert("Click jsBach to play\nClick again to go to next round.\n")
 
 for (var i = 0; i < KEYS.length; i++) {
    KEYS[i].style.backgroundColor = COLORS[i][0]
@@ -133,5 +135,4 @@ document.querySelector(".keyboard")
       flashKeys()
       
    })
-
 

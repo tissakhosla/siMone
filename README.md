@@ -1,4 +1,5 @@
-## [siMone](https://tissakhosla.github.io/siMone/docs/)
+## siMone
+[Play the Game!](https://tissakhosla.github.io/siMone/docs/)
 
 ### Languages/Tools
 -  JavaScript

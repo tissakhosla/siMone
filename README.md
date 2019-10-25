@@ -21,4 +21,5 @@
     - Number of keys
     - Compose your own games
     - games that add a note at the beginning, end, or the middle!
+    - rhythmic component
 

@@ -15,4 +15,10 @@
 -  Braille typing trainer
 -  Ear Trainer
 -  Sampler/Triggers
+-  Options to customize ingame:
+    - Speed
+    - Sounds
+    - Number of keys
+    - Compose your own games
+    - games that add a note at the beginning, end, or the middle!
 

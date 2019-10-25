@@ -115,13 +115,15 @@ function flashKeys() {
 //ONLOAD
 
 keyControl()
-alert("Click jsBach to play\nClick again to go to next round.\n")
 
 for (var i = 0; i < KEYS.length; i++) {
    KEYS[i].style.backgroundColor = COLORS[i][0]
 }
 
+setTimeout(function(){
+   alert("Click jsBach to play\nClick again to go to next round.\n")
 
+}, 1300)
 document.querySelector(".keyboard")
    .addEventListener("submit", function(eo){
 

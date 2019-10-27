@@ -1,6 +1,6 @@
 ## siMone
 [Play the Game!](https://tissakhosla.github.io/siMone/)
-
+CSS has been fixed, github.io is updating Sun 10/27 2:15pm
 ### Languages/Tools
 -  JavaScript
 -  HTML

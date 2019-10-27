@@ -108,7 +108,7 @@ function sleep (time) {
  }
 
 function flashKeys() {
-   sleep(TIMEOUT).then(() => {
+   sleep(2*TIMEOUT).then(() => {
       
       let subGame = GAMES[round].slice(0, turn)
       console.log(`current sequence ${subGame}`)

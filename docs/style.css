@@ -1,39 +1,46 @@
+/* *{   } */
+
  body {
    background: #87d8f3;
+   height: 80vh;
+   margin: 6vh 3vh;  
    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 
                'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
-main {
-   margin: 10%;  
-}
-
 .keyboard {
-   background: white;
    display: flex;
    flex-direction: row;
-  justify-content: space-around;
+   justify-content: space-around;
    height: 80vh;
 
 }
-/*
-.key, input[type=submit] {
-   border: solid black 2px;
+
+.key {
    height: 80vh;
    width: 20vh;
+   border:solid black
 }
 
 input[type=submit] {
-   font-size: larger;
+   height: 80vh;
+   width: 20vh;
+   font-size: 2.66vh;
    font-weight: bolder;
    background: rgb(173, 6, 179);
+   color: lightblue;
+
 }
 
 .key-text {
-   font-size: x-large;
+   text-align: center;
+   font-size:2.66vh;
    font-weight: bolder;
    color: lightblue;
-   border: solid lightblue 2px;
-   padding: 10px 10px 10px 10px;
-   margin: 570px 100px 0px 20px;
-} */
+   border: solid lightblue .4vh;
+   margin: 1vh 1vh;
+   padding: 3vh;
+   position: absolute;
+   top: 74%;
+
+} 

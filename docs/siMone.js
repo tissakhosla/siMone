@@ -1,5 +1,5 @@
 
-const TIMEOUT = 200
+const TIMEOUT = 333
 
 const GAMES = 
 [[4,2,3,0,2,2,0], 
@@ -10,12 +10,12 @@ const GAMES =
  [1,3,2,4,0,0,1,3,3,2,4,0,1,1,3,3,2,4,4,1,0],
  [2,3,4,2,1,2,3,1,0,4,2,4,0,1,2,3,0],
  [0,2,4,2,3,2,1,2,0,2,3,2,1,3,0,3,4,4,4,2,0,0,0]]
- 
+
 let round = 0
 let userKeys = []
 let turn = 0
 
-const NOTES = document.querySelectorAll("audio")
+const NOTES = document.querySelectorAll(".notes")
 const KEYS = document.querySelectorAll(".key")
 
 let COLORS = 
@@ -59,6 +59,7 @@ function keyControl() {
    }
 
    function keyup(eo) {
+      
       keyIndex = KEYARRAY.indexOf(eo.keyCode)
       KEYS[keyIndex].style.backgroundColor = COLORS[keyIndex][0] 
       
@@ -98,7 +99,7 @@ function flash(index, keyindex) {
    }, TIMEOUT * (index));
    setTimeout(function() {
       KEYS[keyindex].style.backgroundColor = COLORS[keyindex][0]
-   }, TIMEOUT * (index + .8));
+   }, TIMEOUT * (index + .666));
 }
 
 // https://davidwalsh.name/javascript-sleep-function
@@ -128,8 +129,8 @@ for (var i = 0; i < KEYS.length; i++) {
 
 setTimeout(function(){
    alert("Click jsBach to play\nClick again to go to next round.\n")
+}, 900)
 
-}, 1300)
 document.querySelector(".keyboard")
    .addEventListener("submit", function(eo){
 

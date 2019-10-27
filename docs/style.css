@@ -1,21 +1,22 @@
-body {
+ body {
    background: #87d8f3;
    font-family: 'Trebuchet MS', 'Lucida Sans Unicode', 
                'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
 }
 
 main {
-   margin: 5vh;
-   
+   margin: 10%;  
 }
 
 .keyboard {
+   background: white;
    display: flex;
    flex-direction: row;
-   justify-content: space-around; 
-   
-}
+  justify-content: space-around;
+   height: 80vh;
 
+}
+/*
 .key, input[type=submit] {
    border: solid black 2px;
    height: 80vh;
@@ -35,4 +36,4 @@ input[type=submit] {
    border: solid lightblue 2px;
    padding: 10px 10px 10px 10px;
    margin: 570px 100px 0px 20px;
-}
+} */
